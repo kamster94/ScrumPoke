@@ -1,5 +1,6 @@
 import './globals.css';
 import React from 'react';
+import TopBar from '@/components/TopBar';
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,7 +14,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <TopBar />
+        <div className="pt-16">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

@@ -1,0 +1,29 @@
+{
+  "siteName": "ScrumPoke",
+  "avatars": [
+    {
+      "name": "Monocle",
+      "path": "/images/monocle.svg"
+    },
+    {
+      "name": "Mouthless",
+      "path": "/images/mouthless.svg"
+    },
+    {
+      "name": "Nerd",
+      "path": "/images/nerd.svg"
+    },
+    {
+      "name": "Smile",
+      "path": "/images/smile.svg"
+    },
+    {
+      "name": "Stars",
+      "path": "/images/stars.svg"
+    },
+    {
+      "name": "Tongue",
+      "path": "/images/tongue.svg"
+    }
+  ]
+}
