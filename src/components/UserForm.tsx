@@ -16,36 +16,36 @@ const UserForm = () => {
 
   return (
     <Container className='max-w-xl'>
-      <div className="flex flex-col gap-4 w-full">
+      <div className='flex flex-col gap-4 w-full'>
         <TextInputWithLabel
           value={usernameForm.username}
           setValue={usernameForm.setUsername}
         >
           Username
         </TextInputWithLabel>
-        <span className="label label-text">Avatar</span>
+        <span className='label label-text'>Avatar</span>
         <RadioInputWithLabel
           checked={avatarForm.avatar === ''}
           onChange={() => avatarForm.setAvatar('')}
-          labelClassName="relative"
+          labelClassName='relative'
         >
-          <span className="text-xs font-thin absolute top-[-1.5em] w-full">No avatar</span>
-          <Avatar image="" username={usernameForm.username} className="block" />
+          <span className='text-xs font-thin absolute top-[-1.5em] w-full'>No avatar</span>
+          <Avatar image='' username={usernameForm.username} className='block' />
         </RadioInputWithLabel>
         {_.map(avatars, (avatar) => {
           return (
             <RadioInputWithLabel
               checked={avatarForm.avatar === avatar.path}
               onChange={() => avatarForm.setAvatar(avatar.path)}
-              labelClassName="relative"
+              labelClassName='relative'
             >
-              <span className="text-xs font-thin absolute top-[-1.5em] w-full">{avatar.name}</span>
-              <Avatar image={avatar.path} username="" className="block" />
+              <span className='text-xs font-thin absolute top-[-1.5em] w-full'>{avatar.name}</span>
+              <Avatar image={avatar.path} username='' className='block' />
             </RadioInputWithLabel>
           );
         })}
 
-        <Button className="btn-primary w-fit place-self-center" onClick={() => updateUser()}>Save changes</Button>
+        <Button className='btn-primary w-fit place-self-center' onClick={() => updateUser()}>Save changes</Button>
       </div>
     </Container>
   );

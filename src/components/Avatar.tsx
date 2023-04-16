@@ -14,8 +14,8 @@ const Avatar = ({ image, username, className }: Props) => {
 
   const placeholderAvatar = (
     <div className={`avatar placeholder ${username === '' ? '' : 'tooltip tooltip-left'} ${className ?? ''}`} data-tip={username}>
-      <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
-        <span className="text-3xl">{usernameInitial}</span>
+      <div className='bg-neutral-focus text-neutral-content rounded-full w-12'>
+        <span className='text-3xl'>{usernameInitial}</span>
       </div>
     </div>
   );
@@ -26,7 +26,7 @@ const Avatar = ({ image, username, className }: Props) => {
 
   return (
     <div className={`avatar ${username === '' ? '' : 'tooltip tooltip-left'} ${className ?? ''}`} data-tip={username}>
-      <div className="w-12 rounded-full">
+      <div className='w-12 rounded-full'>
         <Image src={image} alt='user avatar' height={48} width={48}/>
       </div>
     </div>
