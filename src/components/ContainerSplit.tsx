@@ -8,11 +8,11 @@ interface Props {
 
 const ContainerSplit = ({ leftContainer, rightContainer }: Props) => {
   return (
-    <Container className="columns-2">
-      <Container className="w-full">
+    <Container className='columns-2'>
+      <Container className='w-full'>
         {leftContainer}
       </Container>
-      <Container className="w-full">
+      <Container className='w-full'>
         {rightContainer}
       </Container>
     </Container>

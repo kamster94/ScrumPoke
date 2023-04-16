@@ -11,14 +11,14 @@ interface Props {
 const TextInputWithLabel = ({ children, value, ...props }: Props) => {
   return (
     <div>
-      <div className="mb-2 block">
-        <label className="label">
-          <span className="label-text">{children}</span>
+      <div className='mb-2 block'>
+        <label className='label'>
+          <span className='label-text'>{children}</span>
         </label>
       </div>
       <input
-        type="text"
-        className="input input-bordered w-full"
+        type='text'
+        className='input input-bordered w-full'
         value={value}
         onChange={(event) => props.setValue(event.target.value)}
       />
