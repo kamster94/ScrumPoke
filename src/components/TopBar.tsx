@@ -5,16 +5,15 @@ import useUser from '@/hooks/useUser';
 import Avatar from '@/components/Avatar';
 import Button from '@/components/Button';
 import useSiteProperties from '@/hooks/useSiteProperties';
+import Link from 'next/link';
+import ThemeSwitch from '@/components/ThemeSwitch';
 
-interface Props {
-}
-
-const TopBar = (props: Props) => {
+const TopBar = () => {
   const { currentUser } = useUser();
-  const { siteProperties } = useSiteProperties();
+  const { siteName } = useSiteProperties();
 
   return (
-    <div className="navbar bg-base-100 fixed top-0 left-0 w-full z-20">
+    <div className="navbar bg-base-100 fixed top-0 left-0 w-full z-20 shadow">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -24,16 +23,19 @@ const TopBar = (props: Props) => {
             </svg>
           </label>
           <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-            <li><a>Homepage</a></li>
-            <li><a>Portfolio</a></li>
-            <li><a>About</a></li>
+            <li><Link href='/'>Homepage</Link></li>
+            <li><Link href='/'>Create room</Link></li>
+            <li><Link href='/'>Join room</Link></li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <Button className="btn-ghost normal-case text-xl" link='/'>{siteProperties.siteName}</Button>
+        <Button className="btn-ghost normal-case text-xl" link='/'>{siteName}</Button>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end space-x-5">
+        <Button className="btn-ghost btn-circle">
+          <ThemeSwitch />
+        </Button>
         <Button className="btn-ghost btn-circle" link='/user'>
           <Avatar username={currentUser.username} image={currentUser.avatar} />
         </Button>

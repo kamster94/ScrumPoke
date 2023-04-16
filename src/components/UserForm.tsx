@@ -10,23 +10,20 @@ import Avatar from '@/components/Avatar';
 import Button from '@/components/Button';
 import Container from '@/components/Container';
 
-interface Props {
-}
-
-const UserForm = (props: Props) => {
+const UserForm = () => {
   const { usernameForm, avatarForm, updateUser } = useUser();
-  const { siteProperties } = useSiteProperties();
+  const { avatars } = useSiteProperties();
 
   return (
-    <Container className="w-96">
-      <div className="flex flex-col gap-4">
+    <Container className='max-w-xl'>
+      <div className="flex flex-col gap-4 w-full">
         <TextInputWithLabel
           value={usernameForm.username}
           setValue={usernameForm.setUsername}
         >
           Username
         </TextInputWithLabel>
-        <span className="label-text">Avatar</span>
+        <span className="label label-text">Avatar</span>
         <RadioInputWithLabel
           checked={avatarForm.avatar === ''}
           onChange={() => avatarForm.setAvatar('')}
@@ -35,7 +32,7 @@ const UserForm = (props: Props) => {
           <span className="text-xs font-thin absolute top-[-1.5em] w-full">No avatar</span>
           <Avatar image="" username={usernameForm.username} className="block" />
         </RadioInputWithLabel>
-        {_.map(siteProperties.avatars, (avatar) => {
+        {_.map(avatars, (avatar) => {
           return (
             <RadioInputWithLabel
               checked={avatarForm.avatar === avatar.path}

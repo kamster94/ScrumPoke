@@ -1,6 +1,8 @@
 import './globals.css';
 import React from 'react';
 import TopBar from '@/components/TopBar';
+import Footer from '@/components/Footer';
+import ThemeWrapper from '@/components/ThemeWrapper';
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,13 +15,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <ThemeWrapper lang="en">
       <body>
         <TopBar />
-        <div className="pt-16">
+        <div className="py-20 md:px-1 px-5">
           {children}
         </div>
+        <Footer />
       </body>
-    </html>
+    </ThemeWrapper>
   );
 }

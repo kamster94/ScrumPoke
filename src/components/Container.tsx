@@ -6,7 +6,7 @@ interface Props{
 }
 
 const Container = ({ children, className }: Props) => (
-  <div className={`container mx-auto ${className ?? ''}`} >
+  <div className={`container mx-auto flex flex-col items-center ${className ?? ''}`} >
     {children}
   </div>
 );
