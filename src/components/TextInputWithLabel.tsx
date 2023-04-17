@@ -4,11 +4,14 @@ import React, { ReactNode } from 'react';
 
 interface Props {
   children?: ReactNode;
+  placeholder?: string;
   value: string;
   setValue: (value: string) => void;
 }
 
-const TextInputWithLabel = ({ children, value, ...props }: Props) => {
+const TextInputWithLabel = ({
+  children, placeholder, value, ...props
+}: Props) => {
   return (
     <div>
       <div className='mb-2 block'>
@@ -19,6 +22,7 @@ const TextInputWithLabel = ({ children, value, ...props }: Props) => {
       <input
         type='text'
         className='input input-bordered w-full'
+        placeholder={placeholder}
         value={value}
         onChange={(event) => props.setValue(event.target.value)}
       />

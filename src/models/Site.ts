@@ -14,7 +14,7 @@ export interface SiteProperties {
 // eslint-disable-next-line no-shadow
 export enum Theme {
   light = 'light',
-  dark = 'business',
+  dark = 'dark',
 }
 
 export const themeAtom = atomWithStorage<Theme>('theme', Theme.light);
