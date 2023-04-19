@@ -6,7 +6,7 @@ import Avatar from '@/components/Avatar';
 import Button from '@/components/Button';
 import useSiteProperties from '@/hooks/useSiteProperties';
 import Link from 'next/link';
-import ThemeSwitch from '@/app/ThemeSwitch';
+import ThemeSwitch from '@/components/ThemeSwitch';
 
 const TopBar = () => {
   const { currentUser } = useUser();
