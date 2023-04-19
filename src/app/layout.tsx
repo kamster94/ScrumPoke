@@ -1,9 +1,10 @@
 import './globals.css';
 import manifest from '@/../manifest.json' assert { type: 'JSON' };
 import React from 'react';
-import TopBar from '@/components/TopBar';
-import Footer from '@/components/Footer';
+import TopBar from '@/app/TopBar';
+import Footer from '@/app/Footer';
 import ThemeWrapper from '@/components/ThemeWrapper';
+import ToasterWrapper from '@/components/ToasterWrapper';
 
 export const metadata = {
   title: manifest.siteName,
@@ -18,8 +19,9 @@ export default function RootLayout({
   return (
     <ThemeWrapper lang='en'>
       <body>
+        <ToasterWrapper />
         <TopBar />
-        <div className='py-20 md:px-1 px-5'>
+        <div className='pt-20 pb-36 md:py-20 md:px-1 px-5'>
           {children}
         </div>
         <Footer />
