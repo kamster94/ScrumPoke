@@ -48,9 +48,10 @@ class SocketServer {
         path: '/api/socket',
       });
       this.io.on('connection', (socket) => {
-        socket.on('join', (roomId: string, user: SocketUser) => {
+        socket.on('joinRoom', (roomId: string, user: SocketUser) => {
           socket.join(roomId);
           socket.to(roomId).emit('userJoined', roomId, user);
+          console.log(`${user.userId} joined room ${roomId}`);
         });
       });
     }
