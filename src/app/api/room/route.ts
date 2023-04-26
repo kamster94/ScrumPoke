@@ -7,15 +7,13 @@ export async function POST(request: NextRequest) {
   const socketServer = SocketServer.getInstance();
   const existing = socketServer.getRoomById(room.id);
   if (existing) {
-    return new Response(null, {
+    return new Response('Room with this id already exists', {
       status: 409,
-      statusText: 'Room with this id already exists',
     });
   }
   socketServer.addRoom(room);
 
-  return new Response(null, {
+  return new Response('Room created', {
     status: 201,
-    statusText: 'Room created',
   });
 }

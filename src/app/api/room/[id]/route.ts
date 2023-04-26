@@ -5,9 +5,8 @@ export async function GET(request: Request, { params }: {
 }) {
   const roomId = params.id;
   if (!roomId) {
-    return new Response(null, {
+    return new Response('Id cannot be null', {
       status: 400,
-      statusText: 'Id cannot be null',
     });
   }
   const socketServer = SocketServer.getInstance();
@@ -15,12 +14,10 @@ export async function GET(request: Request, { params }: {
   if (existing) {
     return new Response(JSON.stringify(existing), {
       status: 200,
-      statusText: 'Room with this id exists',
     });
   }
 
-  return new Response(null, {
+  return new Response('Cannot find room with specified id', {
     status: 404,
-    statusText: 'Cannot find room with specified id',
   });
 }

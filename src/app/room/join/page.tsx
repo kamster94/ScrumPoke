@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import toast from 'react-hot-toast';
 import Container from '@/components/Container';
 import FormContainer from '@/components/FormContainer';
 import TextInputWithLabel from '@/components/TextInputWithLabel';
@@ -13,17 +12,7 @@ export default function JoinRoomForm() {
   const [roomName, setRoomName] = useState('');
 
   async function handleJoin() {
-    const response = await fetch(`/api/room/${roomName}`, {
-      method: 'GET',
-
-    });
-    if (response.ok) {
-      toast.success(`Joining room '${roomName}'`);
-      router.push(`/room/join/${roomName}`);
-    } else {
-      toast.error(`Room with name '${roomName}' was not found`);
-      setRoomName('');
-    }
+    router.push(`/room/join/${roomName}`);
   }
 
   return (

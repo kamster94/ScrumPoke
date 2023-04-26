@@ -7,6 +7,7 @@ import TextInputWithLabel from '@/components/TextInputWithLabel';
 import Button from '@/components/Button';
 import FormContainer from '@/components/FormContainer';
 import { Room } from '@/models/Server';
+import { useRouter } from 'next/navigation';
 
 function generateId(length: number) {
   let result = '';
@@ -22,6 +23,7 @@ function generateId(length: number) {
 
 export default function CreateRoom() {
   const [newRoomName, setNewRoomName] = useState('');
+  const router = useRouter();
 
   const defaultRoomName = generateId(10);
 
@@ -40,8 +42,11 @@ export default function CreateRoom() {
     });
     if (response.ok) {
       toast.success(`Successfully created room '${roomName}'`);
+      setTimeout(() => {
+        router.push(`/room/join/${roomName}`);
+      }, 50);
     } else {
-      toast.error(`Failed to create a room '${roomName}'. ${response.statusText}.`);
+      toast.error(`Failed to create a room '${roomName}'. ${response.body}.`);
     }
   }
 
